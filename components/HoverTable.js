@@ -8,22 +8,26 @@ export default function HoverTable({ data }) {
       <table className={styles.hoverTableContent}>
         <tr>
           {Object.entries(data[0]).map(([key, i]) => {
-            return <th>{key}</th>;
+            return <th key={key}>{key}</th>;
           })}
         </tr>
-        {Object.entries(data).map(([ikey]) => {
-          return (
-            <tr>
-              {Object.entries(data[ikey]).map(([key]) => {
-                return (
-                  <td>
-                    {Array.isArray(data[ikey][key]) ? "hover" : data[ikey][key]}
-                  </td>
-                );
-              })}
-            </tr>
-          );
-        })}
+        <tbody>
+          {Object.entries(data).map(([ikey]) => {
+            return (
+              <tr key={ikey}>
+                {Object.entries(data[ikey]).map(([key]) => {
+                  return (
+                    <td key={data[ikey][key].id}>
+                      {Array.isArray(data[ikey][key])
+                        ? "hover"
+                        : data[ikey][key]}
+                    </td>
+                  );
+                })}
+              </tr>
+            );
+          })}
+        </tbody>
       </table>
     </div>
   );

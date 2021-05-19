@@ -10,10 +10,10 @@ export default function Options() {
     <div className={styles.optionContainer}>
       <div className={styles.option}>
         <div className={styles.dropdown}>
-          <button classname={styles.dropbtn}>Page Size</button>
+          <button className={styles.dropbtn}>Page Size</button>
           <div className={styles.dropdownContent}>
             {totalPagesOption.map((e) => (
-              <Link href={`/?numEntries=${e}`}>
+              <Link key={e} href={`/?numEntries=${e}`}>
                 <p>{e}</p>
               </Link>
             ))}

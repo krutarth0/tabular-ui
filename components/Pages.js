@@ -12,13 +12,13 @@ export default function Pages({ pageNo, pages, numEntries }) {
     <div className={styles.pagesContainer}>
       {totalPages.map((page) =>
         page == pageNo ? (
-          <Link href={`/?page=${page}&numEntries=${numEntries}`}>
+          <Link key={page} href={`/?page=${page}&numEntries=${numEntries}`}>
             <div className={`${styles.pageButton} ${styles.activePagebutton}`}>
               {page}
             </div>
           </Link>
         ) : (
-          <Link href={`/?page=${page}&numEntries=${numEntries}`}>
+          <Link key={page} href={`/?page=${page}&numEntries=${numEntries}`}>
             <div className={styles.pageButton}>{page}</div>
           </Link>
         )
