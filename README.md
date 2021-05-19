@@ -1,11 +1,16 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+ `cd to folder`
+ 
+##install dependencies
+`npm install`
 
 ## Front end
-
 `npm run dev`
 
-open localhost:3000/
+#after succesfully compiled 
+`open http://localhost:3000/`
 
 ## Backend end
-
 `npx json-server --watch db.json -p 8000`
+
+#backend server is on port 8000
+`http://localhost:8000/shipments`
