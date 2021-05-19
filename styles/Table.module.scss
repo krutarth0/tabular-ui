@@ -1,0 +1,64 @@
+.wrapper {
+  table {
+    td,
+    th {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    tr:hover {
+      background-color: #ddd;
+    }
+
+    th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: left;
+      background-color: #125fb6;
+      color: white;
+    }
+  }
+}
+
+.hoverTable {
+  position: relative;
+  cursor: pointer;
+  table {
+    td,
+    th {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+
+    tr {
+      background-color: #afa6a6;
+    }
+
+    tr:hover {
+      background-color: rgb(143, 142, 142);
+    }
+
+    th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: left;
+      background-color: #125fb6;
+      color: white;
+    }
+  }
+
+  .hoverTableContent {
+    position: absolute;
+    display: none;
+  }
+
+  &:hover {
+    .hoverTableContent {
+      display: block;
+    }
+  }
+}
