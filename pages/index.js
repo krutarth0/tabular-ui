@@ -4,17 +4,19 @@ import Table from "../components/Table";
 import styles from "../styles/Home.module.scss";
 
 export default function Home({ data, pageNo, pageSize, pages }) {
-  console.log(pageSize);
-
   return (
     <div className={styles.tableContainer}>
+      {/* responsible for options shown above header */}
       <Options />
+      {/* Main Table */}
       <Table data={data} />
+      {/* Pagination */}
       <Pages pageNo={pageNo} pages={pages} numEntries={pageSize} />
     </div>
   );
 }
 
+//SERVER SIDE FUNCTION
 export async function getServerSideProps(context) {
   var data = await fetch("http://localhost:8000/shipments");
   data = await data.json();
