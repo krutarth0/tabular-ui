@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import styles from "../styles/Options.module.scss";
-import { range } from "../utilities/functions";
+import { range, unique_key } from "../utilities/functions";
 
 export default function Options() {
   var totalPagesOption = range(1, Math.ceil(10));
@@ -13,8 +13,8 @@ export default function Options() {
           <button className={styles.dropbtn}>Page Size</button>
           <div className={styles.dropdownContent}>
             {totalPagesOption.map((e) => (
-              <Link key={e} href={`/?numEntries=${e}`}>
-                <p>{e}</p>
+              <Link key={unique_key()} href={`/?numEntries=${e}`}>
+                <p key={unique_key()}>{e}</p>
               </Link>
             ))}
           </div>

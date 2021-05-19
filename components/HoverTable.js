@@ -1,23 +1,27 @@
 import React from "react";
 import styles from "../styles/Table.module.scss";
 
+import { unique_key } from "../utilities/functions";
+
 export default function HoverTable({ data }) {
   return (
     <div className={styles.hoverTable}>
       &nbsp;
       <table className={styles.hoverTableContent}>
-        <tr>
-          {Object.entries(data[0]).map(([key, i]) => {
-            return <th key={key}>{key}</th>;
-          })}
-        </tr>
+        <thead>
+          <tr>
+            {Object.entries(data[0]).map(([key, i]) => {
+              return <th key={unique_key()}>{key}</th>;
+            })}
+          </tr>
+        </thead>
         <tbody>
           {Object.entries(data).map(([ikey]) => {
             return (
-              <tr key={ikey}>
+              <tr key={unique_key()}>
                 {Object.entries(data[ikey]).map(([key]) => {
                   return (
-                    <td key={data[ikey][key].id}>
+                    <td key={unique_key()}>
                       {Array.isArray(data[ikey][key])
                         ? "hover"
                         : data[ikey][key]}

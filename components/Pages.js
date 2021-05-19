@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { range } from "../utilities/functions";
+import { range, unique_key } from "../utilities/functions";
 import styles from "../styles/Pages.module.scss";
 
 export default function Pages({ pageNo, pages, numEntries }) {
@@ -12,13 +12,19 @@ export default function Pages({ pageNo, pages, numEntries }) {
     <div className={styles.pagesContainer}>
       {totalPages.map((page) =>
         page == pageNo ? (
-          <Link key={page} href={`/?page=${page}&numEntries=${numEntries}`}>
+          <Link
+            key={unique_key()}
+            href={`/?page=${page}&numEntries=${numEntries}`}
+          >
             <div className={`${styles.pageButton} ${styles.activePagebutton}`}>
               {page}
             </div>
           </Link>
         ) : (
-          <Link key={page} href={`/?page=${page}&numEntries=${numEntries}`}>
+          <Link
+            key={unique_key()}
+            href={`/?page=${page}&numEntries=${numEntries}`}
+          >
             <div className={styles.pageButton}>{page}</div>
           </Link>
         )
